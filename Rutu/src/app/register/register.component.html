@@ -1,0 +1,47 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <form class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="First Name">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Last Name">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Phone Number">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Address">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="password" (input)="onPasswordInput()">
+          <mat-error *ngIf="password.hasError('required')">Password is required</mat-error>
+          <mat-error *ngIf="password.hasError('minlength')">Password must have at least {{minPw}} characters</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput type="password" placeholder="Confirm password" formControlName="password2" (input)="onPasswordInput()">
+          <mat-error *ngIf="password2.hasError('required')">Please confirm your password</mat-error>
+          <mat-error *ngIf="password2.invalid && !password2.hasError('required')">Passwords don't match</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Choose Department...</mat-label>
+          <mat-select>
+            <mat-option [value]="dept" *ngFor="let dept of Departments">{{dept}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button color="accent" class="btn-block">Register</button>
+    </form>
+  </mat-card>
+</div>
