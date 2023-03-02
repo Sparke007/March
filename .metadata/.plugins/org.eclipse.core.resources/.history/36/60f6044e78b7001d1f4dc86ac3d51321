@@ -1,0 +1,12 @@
+package com.projectask.march.service;
+
+import com.projectask.march.modal.Product;
+
+public class ProductService {
+
+	public Iterable<Product> listAllProducts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

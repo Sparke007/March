@@ -1,0 +1,39 @@
+package com.projectask.march.config;
+
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+public class WebSecurityConfig {
+	
+	private static final String[] AUTH_WHITELIST = {
+	        "/authenticate",
+	        "/swagger-resources/**",
+	        "/swagger-ui/**",
+	        "/v3/api-docs",
+	        "/webjars/**"
+	};
+	
+	@Override
+	 protected void configure(HttpSecurity httpSecurity) throws Exception {
+	     httpSecurity
+	             .cors()
+	             .and()
+	             .csrf()
+	             .disable()
+	             .headers()
+	             .frameOptions()
+	             .deny()
+	             .and()
+	             // dont authenticate this particular request
+	             .authorizeRequests().antMatchers(AUTH_WHITELIST).permitAll().
+	             // all other requests need to be authenticated
+	                     anyRequest().authenticated().and().
+	             // make sure we use stateless session; session won't be // used to store user's state.
+	                     exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
+	             .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+	     // Add a filter to validate the tokens with every request
+	     httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+	 }
+
+}

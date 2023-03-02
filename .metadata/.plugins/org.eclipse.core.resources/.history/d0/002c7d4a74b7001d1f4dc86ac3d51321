@@ -1,0 +1,6 @@
+package com.projectask.march.modal;
+
+@Entity
+public class Product {
+
+}

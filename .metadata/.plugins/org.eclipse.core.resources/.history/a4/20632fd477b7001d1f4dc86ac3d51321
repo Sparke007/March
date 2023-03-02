@@ -1,0 +1,17 @@
+package com.projectask.march.controller;
+
+import com.projectask.march.modal.Product;
+
+public interface ProductService {
+
+	Iterable<Product> listAllProducts();
+
+	Product getProductById(Integer id);
+
+
+
+	void deleteProduct(Integer id);
+
+	void saveProduct(Product storedProduct);
+
+}

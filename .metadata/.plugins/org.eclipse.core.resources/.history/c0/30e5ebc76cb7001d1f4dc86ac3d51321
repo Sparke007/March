@@ -1,0 +1,5 @@
+package com.projectask.march.config;
+
+public class SwaggerConfiguration {
+
+}

@@ -1,0 +1,88 @@
+package com.projectask.march.modal;
+
+import javax.persistence.OneToMany;
+
+public class Employee {
+
+	
+	private String id;
+	private String name;
+	private String designation;
+	private double salary;
+	
+	@OneToMany()
+    Department department;
+
+	public Employee() {
+		super();
+	}
+
+	public Employee(String id, String name, String designation, double salary, Department department) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.designation = designation;
+		this.salary = salary;
+		this.department = department;
+	}
+
+	public Employee(String name, String designation, double salary, Department department) {
+		super();
+		this.name = name;
+		this.designation = designation;
+		this.salary = salary;
+		this.department = department;
+	}
+	
+	
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDesignation() {
+		return designation;
+	}
+
+	public void setDesignation(String designation) {
+		this.designation = designation;
+	}
+
+	public double getSalary() {
+		return salary;
+	}
+
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+
+	public Employee() {
+		super();
+	}
+
+	public Employee(String id, String name, String designation, double salary, Department department) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.designation = designation;
+		this.salary = salary;
+		this.department = department;
+	}
+
+	public Employee(String name, String designation, double salary, Department department) {
+		super();
+		this.name = name;
+		this.designation = designation;
+		this.salary = salary;
+		this.department = department;
+	}
+}
+
+
+	
+
+	
